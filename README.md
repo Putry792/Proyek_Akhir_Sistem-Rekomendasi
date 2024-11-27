@@ -242,13 +242,12 @@ Semakin kecil DB Score, semakin baik pemisahan antar klaster, yang berarti klast
 
 Rumus untuk menghitung Davies-Bouldin Score adalah:
 
-$$ DB = \frac{1}{N} \sum*{i=1}^{N} \max*{i \neq j} \left( \frac{s*i + s_j}{d*{ij}} \right) $$
+$$DB = \frac{1}{k} \sum_{i=1}^{k} \max_{j \neq i} \left( \frac{R_i + R_j}{d(c_i, c_j)} \right)$$
 
-Dimana:
-
-- \( s_i \) adalah jarak rata-rata antara titik dalam klaster \( i \) dengan pusat klaster \( i \),
-- \( d\_{ij} \) adalah jarak antara pusat klaster \( i \) dan pusat klaster \( j \),
-- \( N \) adalah jumlah klaster.
+Di mana:
+- \( k \) adalah jumlah cluster.
+- \( R_i \) adalah radius dalam cluster ke-i.
+- \( d(c_i, c_j) \) adalah jarak antara pusat cluster ke-i (\( c_i \)) dan pusat cluster ke-j (\( c_j \)).
 
 Untuk melakukan pengujian model, digunakan potongan kode berikut.
 
